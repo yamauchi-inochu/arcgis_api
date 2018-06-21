@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+<Document id="root_doc">
+<Schema name="te" id="te">
+	<SimpleField name="FID" type="string"></SimpleField>
+</Schema>
+<Folder><name>te</name>
+  <Placemark>
+	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<ExtendedData><SchemaData schemaUrl="#te">
+		<SimpleData name="FID">0</SimpleData>
+	</SchemaData></ExtendedData>
+      <Polygon><altitudeMode>clampToGround</altitudeMode><outerBoundaryIs><LinearRing><altitudeMode>clampToGround</altitudeMode><coordinates>136.427289236467,36.3748448826211 136.425318119576,36.5820433836141 136.660484995583,36.5832740013612 136.661830924507,36.3760662826148 136.427289236467,36.3748448826211</coordinates></LinearRing></outerBoundaryIs></Polygon>
+  </Placemark>
+</Folder>
+</Document></kml>
