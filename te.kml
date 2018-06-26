@@ -5,13 +5,13 @@
 	<open>1</open>
 	<Style id="line">
 		<LineStyle><!--ラインのスタイルを指定-->
-			<color>ff2EF7FE</color>
-			<width>10</width>
+			<color>red</color>
+			<width>2</width>
 		</LineStyle>
 	</Style>
 	<Placemark>
-		<name>tokyo-newyork</name>
-		<description>対象エリア</description>
+		<name>対象エリア</name>
+		<description>この範囲について議論してください。</description>
 		<LookAt>
 			<longitude>136.570</longitude>
 			<latitude>36.479</latitude>
