@@ -6,7 +6,8 @@
 </Schema>
 <Folder><name>te</name>
   <Placemark>
-	  <description>test</description>
+  <name>te</name>
+  <description>test</description>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
 	<ExtendedData><SchemaData schemaUrl="#te">
 		<SimpleData name="FID">0</SimpleData>
