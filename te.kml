@@ -10,6 +10,7 @@
 	<ExtendedData><SchemaData schemaUrl="#te">
 		<SimpleData name="FID">0</SimpleData>
 	</SchemaData></ExtendedData>
+	<description>test</description>
       <Polygon><altitudeMode>clampToGround</altitudeMode><outerBoundaryIs><LinearRing><altitudeMode>clampToGround</altitudeMode><coordinates>136.427289236467,36.3748448826211 136.425318119576,36.5820433836141 136.660484995583,36.5832740013612 136.661830924507,36.3760662826148 136.427289236467,36.3748448826211</coordinates></LinearRing></outerBoundaryIs></Polygon>
   </Placemark>
 </Folder>
