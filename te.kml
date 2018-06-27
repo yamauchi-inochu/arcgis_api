@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <kml xmlns="http://www.opengis.net/kml/2.2">
 <Document>
-	<name>東京-NY</name>
+	<name>AREA</name>
 	<open>1</open>
 	<Style id="line">
 		<LineStyle><!--ラインのスタイルを指定-->
-			<color>red</color>
+			<color>#DF0101</color>
 			<width>2</width>
 		</LineStyle>
 	</Style>
@@ -21,10 +21,10 @@
 			<range>9465727.599999348</range>
 			<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
 		</LookAt>
-		<styleUrl>#line</styleUrl><!--lineのidを使ってスタイリング-->
-		<LineString><!--ラインを作成する。-->
+		<styleUrl>#line</styleUrl>
+		<LineString>
 			<tessellate>1</tessellate>
-			<coordinates><!--ラインの頂点を作成する。-->
+			<coordinates>
 				136.427289236467,36.3748448826211
 				136.425318119576,36.5820433836141
 				136.660484995583,36.5832740013612
