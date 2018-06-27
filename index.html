@@ -15,6 +15,16 @@
       height: 100%;
       width: 100%;
     }
+    #layerToggle {
+      bottom: 60px;
+      right: 10px;
+      position: absolute;
+      z-index: 99;
+      background-color: white;
+      border-radius: 8px;
+      padding: 10px;
+      opacity: 0.75;
+    }
   </style>
 
   <link rel="stylesheet" href="https://js.arcgis.com/4.7/esri/css/main.css">
@@ -24,44 +34,140 @@
     require([
       "esri/Map",
       "esri/views/MapView",
+      "esri/layers/WebTileLayer",
+      "esri/layers/FeatureLayer",
+      "esri/geometry/support/webMercatorUtils",
+      "dojo/on",
       "esri/layers/KMLLayer",
       "esri/widgets/ScaleBar",
       "dojo/domReady!"
     ], function(
       Map,
       MapView,
+      WebTileLayer,
+      FeatureLayer,
+      webMercatorUtils,
+      on,
       KMLLayer,
       ScaleBar
     ) {
-
-      var layer = new KMLLayer({
-        url: "https://yamauchi-inochu.github.io/arcgis_api/te.kml" 
+      const gsipaleLyr = new WebTileLayer({
+          urlTemplate:"https://cyberjapandata.gsi.go.jp/xyz/pale/{level}/{col}/{row}.png",
+          id:"gsipale",
+          opacity:0.9,
+          copyright:"地理院タイル（淡色地図）",
+          visible: false
       });
 
-      var map = new Map({
+      const gsipaleLyr2 = new WebTileLayer({
+          urlTemplate:"https://cyberjapandata.gsi.go.jp/xyz/relief/{level}/{col}/{row}.png",
+          id:"gsipale2",
+          opacity:1.0,
+          copyright:"地理院タイル（色別標高図）",
+          visible: false
+      });
+
+      const gsipaleLyr3 = new WebTileLayer({
+          urlTemplate:"https://cyberjapandata.gsi.go.jp/xyz/seamlessphoto/{level}/{col}/{row}.jpg",
+          id:"gsipale3",
+          opacity:0.9,
+          copyright:"地理院タイル（seamlessphoto）",
+          visible: false
+      });
+
+      const gsipaleLyr4 = new WebTileLayer({
+          urlTemplate:"https://cyberjapandata.gsi.go.jp/xyz/gazo1/{level}/{col}/{row}.jpg",
+          id:"gsipale4",
+          opacity:0.9,
+          copyright:"地理院タイル（第一期　国土画像情報）",
+          visible: false
+      });
+
+      const area = new KMLLayer({
+      url:"https://yamauchi-inochu.github.io/arcgis_api/te.kml",
+      id:"area"
+    });
+
+      const map = new Map({
         basemap: "topo",
-        layers: [layer]
+        layers: [gsipaleLyr2,gsipaleLyr3,gsipaleLyr4,gsipaleLyr,area]
       });
 
-      var view = new MapView({
+      const view = new MapView({
         container: "viewDiv",
         map: map,
-        center: [136.570, 36.459],
+        center: [136.570, 36.479],
         zoom: 12
       });
 
-      var scalebar = new ScaleBar({
-        view: view
+      view.on("layerview-create", function(event) {
+          if (event.layer.id === "gsipale") {
+             console.log("地理院タイル（淡色地図）の LayerView が作成されました!", event.layerView);
+          }
+          if (event.layer.id === "gsipale2") {
+            console.log("地理院タイル（色別標高図）の LayerView が作成されました!", event.layerView);
+          }
+          if (event.layer.id === "gsipale3") {
+            console.log("地理院タイル（シームレス写真）の LayerView が作成されました!", event.layerView);
+          }
+          if (event.layer.id === "gsipale4") {
+            console.log("地理院タイル（第一期国土画像情報）の LayerView が作成されました!", event.layerView);
+          }
+          if (event.layer.id === "area"){
+            console.log("Areaの LayerView が作成されました!", event.layerView);
+          }
+        });
+
+      const scalebar = new ScaleBar({
+        view: view,
+        unit: "dual"
       });
+
       view.ui.add(scalebar, "bottom-left");
 
+    const gsipaleToggle = document.getElementById("gsipaleLyr");
+    const gsipaleToggle2 = document.getElementById("gsipaleLyr2");
+    const gsipaleToggle3 = document.getElementById("gsipaleLyr3");
+    const gsipaleToggle4 = document.getElementById("gsipaleLyr4");
+    const areaToggle = document.getElementById("area");
+
+      on(gsipaleToggle, "change", function() {
+            gsipaleLyr.visible = gsipaleToggle.checked;
+        });
+      on(gsipaleToggle2, "change", function() {
+            gsipaleLyr2.visible = gsipaleToggle2.checked;
+        });
+      on(gsipaleToggle3, "change", function() {
+            gsipaleLyr3.visible = gsipaleToggle3.checked;
+        });
+      on(gsipaleToggle4, "change", function() {
+            gsipaleLyr4.visible = gsipaleToggle4.checked;
+        });
+
+      on(areaToggle, "change", function() {
+        area.visible = areaToggle.checked;
+      });
     });
+
+
   </script>
 
 </head>
 
 <body>
   <div id="viewDiv"></div>
+<span id="layerToggle">
+  <h2>背景地図</h2>
+  <input type="checkbox" id="gsipaleLyr" />地理院地図<br>
+  <input type="checkbox" id="gsipaleLyr2" />標高地図<br>
+  <input type="checkbox" id="gsipaleLyr3" /> 写真<br>
+  <input type="checkbox" id="gsipaleLyr4" /> 国土画像情報（1974～1978年）<br>
+  <h2>レイヤ</h2>
+  <input type="checkbox" id="area" /> 一次避難所<br>
+  <input type="checkbox" id="area2" /> 想定浸水区域<br>
+  <input type="checkbox" id="area2" /> 人口集中地区<br>
+</span>
+
 </body>
 
 </html>
