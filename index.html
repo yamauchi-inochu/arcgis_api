@@ -90,12 +90,13 @@
 
       const p = new KMLLayer({
       url:"https://yamauchi-inochu.github.io/arcgis_api/t_point.kml",
-      id:"p"
+      id:"p",
+      visible: false
     });      
       
       const map = new Map({
         basemap: "topo",
-        layers: [gsipaleLyr2,gsipaleLyr3,gsipaleLyr4,gsipaleLyr,area,p]
+        layers: [gsipaleLyr2,gsipaleLyr3,gsipaleLyr4,gsipaleLyr,area]
       });
 
       const view = new MapView({
