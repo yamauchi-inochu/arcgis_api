@@ -95,7 +95,7 @@
       
       const map = new Map({
         basemap: "topo",
-        layers: [gsipaleLyr2,gsipaleLyr3,gsipaleLyr4,gsipaleLyr,p,area]
+        layers: [gsipaleLyr2,gsipaleLyr3,gsipaleLyr4,gsipaleLyr,area]
       });
 
       const view = new MapView({
@@ -152,7 +152,6 @@
       on(gsipaleToggle4, "change", function() {
             gsipaleLyr4.visible = gsipaleToggle4.checked;
         });
-
       on(areaToggle, "change", function() {
         area.visible = areaToggle.checked;
       });
@@ -176,7 +175,7 @@
   <input type="checkbox" id="gsipaleLyr4" /> 国土画像情報（1974～1978年）<br>
   <h2>レイヤ</h2>
   <input type="checkbox" id="p" /> 一次避難所<br>
-  <input type="checkbox" id="area2" /> 想定浸水区域<br>
+  <input type="checkbox" id="area" /> 想定浸水区域<br>
   <input type="checkbox" id="area2" /> 人口集中地区<br>
 </span>
 
