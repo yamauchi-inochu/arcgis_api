@@ -88,9 +88,14 @@
       id:"area"
     });
 
+      const p = new KMLLayer({
+      url:"https://yamauchi-inochu.github.io/arcgis_api/t_point.kml",
+      id:"area"
+    });      
+      
       const map = new Map({
         basemap: "topo",
-        layers: [gsipaleLyr2,gsipaleLyr3,gsipaleLyr4,gsipaleLyr,area]
+        layers: [gsipaleLyr2,gsipaleLyr3,gsipaleLyr4,gsipaleLyr,p,area]
       });
 
       const view = new MapView({
@@ -116,6 +121,9 @@
           if (event.layer.id === "area"){
             console.log("Areaの LayerView が作成されました!", event.layerView);
           }
+           if (event.layer.id === "area"){
+            console.log("Areaの LayerView が作成されました!", event.layerView);
+          }
         });
 
       const scalebar = new ScaleBar({
@@ -130,6 +138,7 @@
     const gsipaleToggle3 = document.getElementById("gsipaleLyr3");
     const gsipaleToggle4 = document.getElementById("gsipaleLyr4");
     const areaToggle = document.getElementById("area");
+    const pToggle = document.getElementById("p");
 
       on(gsipaleToggle, "change", function() {
             gsipaleLyr.visible = gsipaleToggle.checked;
@@ -147,6 +156,9 @@
       on(areaToggle, "change", function() {
         area.visible = areaToggle.checked;
       });
+      on(pToggle, "change", function() {
+        p.visible = pToggle.checked;
+      });
     });
 
 
@@ -163,7 +175,7 @@
   <input type="checkbox" id="gsipaleLyr3" /> 写真<br>
   <input type="checkbox" id="gsipaleLyr4" /> 国土画像情報（1974～1978年）<br>
   <h2>レイヤ</h2>
-  <input type="checkbox" id="area" /> 一次避難所<br>
+  <input type="checkbox" id="p" /> 一次避難所<br>
   <input type="checkbox" id="area2" /> 想定浸水区域<br>
   <input type="checkbox" id="area2" /> 人口集中地区<br>
 </span>
