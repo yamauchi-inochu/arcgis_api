@@ -95,23 +95,10 @@
         visible: false
       });
 
-      const flood = new KMLLayer({
-      url:"https://yamauchi-inochu.github.io/arcgis_api/kml/flood.kml",
-      id:"flood",
-      copyright:"国土数値情報を加工し作成",
-      visible: false
-    });
-
-      const did = new KMLLayer({
-      url:"https://yamauchi-inochu.github.io/arcgis_api/kml/did.kml",
-      id:"did",
-      copyright:"国土数値情報を加工し作成",
-      visible: false
-    });
 
       const map = new Map({
         basemap: "topo",
-        layers: [gsipaleLyr2,gsipaleLyr3,gsipaleLyr4,gsipaleLyr,area,flood,did,shelter]
+        layers: [gsipaleLyr2,gsipaleLyr3,gsipaleLyr4,gsipaleLyr,area,shelter]
       });
 
       const view = new MapView({
@@ -140,12 +127,6 @@
            if (event.layer.id === "shelter"){
             console.log("shelterの LayerView が作成されました!", event.layerView);
           }
-          if (event.layer.id === "flood"){
-           console.log("floodの LayerView が作成されました!", event.layerView);
-         }
-         if (event.layer.id === "did"){
-          console.log("didの LayerView が作成されました!", event.layerView);
-        }
         });
 
       const scalebar = new ScaleBar({
@@ -161,8 +142,7 @@
     const gsipaleToggle4 = document.getElementById("gsipaleLyr4");
     const areaToggle = document.getElementById("area");
     const shelterToggle = document.getElementById("shelter");
-    const floodToggle = document.getElementById("flood");
-    const didToggle = document.getElementById("did");
+
 
       on(gsipaleToggle, "change", function() {
             gsipaleLyr.visible = gsipaleToggle.checked;
@@ -181,12 +161,6 @@
       });
       on(shelterToggle, "change", function() {
         shelter.visible = shelterToggle.checked;
-      });
-      on(floodToggle, "change", function() {
-        flood.visible = floodToggle.checked;
-      });
-      on(didToggle, "change", function() {
-        did.visible = didToggle.checked;
       });
     });
 
