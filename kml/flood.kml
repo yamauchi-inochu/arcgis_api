@@ -5,7 +5,7 @@
 <Style id="style1">
 	<LineStyle>
 		<color>40000000</color>
-		<width>3</width>
+		<width>0</width>
 	</LineStyle>
 	<PolyStyle>
 		<color>c6ffdcdc</color>
@@ -16,7 +16,7 @@
 <Style id="style2">
 	<LineStyle>
 		<color>40000000</color>
-		<width>3</width>
+		<width>0</width>
 	</LineStyle>
 	<PolyStyle>
 		<color>c6e7d1af</color>
@@ -27,7 +27,7 @@
 <Style id="style3">
 	<LineStyle>
 		<color>40000000</color>
-		<width>3</width>
+		<width>0</width>
 	</LineStyle>
 	<PolyStyle>
 		<color>c6c38d3d</color>
@@ -42,7 +42,7 @@
 	</LineStyle>
 	<PolyStyle>
 		<color>c66b3008</color>
-		<fill>0</fill>
+		<fill>1</fill>
 		<outline>0</outline>
 	</PolyStyle>
 </Style>
