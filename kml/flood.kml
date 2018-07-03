@@ -5,10 +5,10 @@
 <Style id="style1">
 	<LineStyle>
 		<color>40000000</color>
-		<width>0</width>
+		<width>3</width>
 	</LineStyle>
 	<PolyStyle>
-		<color>ffffdcdc</color>
+		<color>e5ffdcdc</color>
 		<fill>1</fill>
 		<outline>1</outline>
 	</PolyStyle>
@@ -16,10 +16,10 @@
 <Style id="style2">
 	<LineStyle>
 		<color>40000000</color>
-		<width>0</width>
+		<width>3</width>
 	</LineStyle>
 	<PolyStyle>
-		<color>ffe7d1af</color>
+		<color>e5e7d1af</color>
 		<fill>1</fill>
 		<outline>1</outline>
 	</PolyStyle>
@@ -27,10 +27,10 @@
 <Style id="style3">
 	<LineStyle>
 		<color>40000000</color>
-		<width>0</width>
+		<width>3</width>
 	</LineStyle>
 	<PolyStyle>
-		<color>ffc38d3d</color>
+		<color>e5c38d3d</color>
 		<fill>1</fill>
 		<outline>1</outline>
 	</PolyStyle>
@@ -38,10 +38,10 @@
 <Style id="style4">
 	<LineStyle>
 		<color>40000000</color>
-		<width>0</width>
+		<width>3</width>
 	</LineStyle>
 	<PolyStyle>
-		<color>ff6b3008</color>
+		<color>e56b3008</color>
 		<fill>1</fill>
 		<outline>1</outline>
 	</PolyStyle>
