@@ -156,7 +156,6 @@
     const gsipaleToggle2 = document.getElementById("gsipaleLyr2");
     const gsipaleToggle3 = document.getElementById("gsipaleLyr3");
     const gsipaleToggle4 = document.getElementById("gsipaleLyr4");
-    const areaToggle = document.getElementById("area");
     const shelterToggle = document.getElementById("shelter");
     const floodToggle = document.getElementById("flood");
     const didToggle = document.getElementById("did");
@@ -173,9 +172,6 @@
       on(gsipaleToggle4, "change", function() {
             gsipaleLyr4.visible = gsipaleToggle4.checked;
         });
-      on(areaToggle, "change", function() {
-        area.visible = areaToggle.checked;
-      });
       on(shelterToggle, "change", function() {
         shelter.visible = shelterToggle.checked;
       });
@@ -185,6 +181,7 @@
       on(didToggle, "change", function() {
         did.visible = didToggle.checked;
       });
+    });
 
 
   </script>
