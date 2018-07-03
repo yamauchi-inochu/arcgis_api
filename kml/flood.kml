@@ -8,7 +8,7 @@
 		<width>3</width>
 	</LineStyle>
 	<PolyStyle>
-		<color>ccffdcdc</color>
+		<color>c6ffdcdc</color>
 		<fill>1</fill>
 		<outline>1</outline>
 	</PolyStyle>
@@ -19,7 +19,7 @@
 		<width>3</width>
 	</LineStyle>
 	<PolyStyle>
-		<color>cce7d1af</color>
+		<color>c6e7d1af</color>
 		<fill>1</fill>
 		<outline>1</outline>
 	</PolyStyle>
@@ -30,7 +30,7 @@
 		<width>3</width>
 	</LineStyle>
 	<PolyStyle>
-		<color>ccc38d3d</color>
+		<color>c6c38d3d</color>
 		<fill>1</fill>
 		<outline>1</outline>
 	</PolyStyle>
@@ -38,12 +38,12 @@
 <Style id="style4">
 	<LineStyle>
 		<color>40000000</color>
-		<width>3</width>
+		<width>0</width>
 	</LineStyle>
 	<PolyStyle>
-		<color>cc6b3008</color>
+		<color>c66b3008</color>
 		<fill>1</fill>
-		<outline>1</outline>
+		<outline>0</outline>
 	</PolyStyle>
 </Style>
 <Placemark>
