@@ -83,20 +83,35 @@
           visible: false
       });
 
-      const area = new KMLLayer({
-      url:"https://yamauchi-inochu.github.io/arcgis_api/area.kml",
-      id:"area"
+        const area = new KMLLayer({
+        url:"https://yamauchi-inochu.github.io/arcgis_api/kml/area.kml",
+        id:"area"
+      });
+
+        const shelter = new KMLLayer({
+        url:"https://yamauchi-inochu.github.io/arcgis_api/kml/shelter.kml",
+        id:"hinan",
+        copyright:"国土数値情報を加工し作成",
+        visible: false
+      });
+
+      const flood = new KMLLayer({
+      url:"https://yamauchi-inochu.github.io/arcgis_api/kml/flood.kml",
+      id:"flood",
+      copyright:"国土数値情報を加工し作成",
+      visible: false
     });
 
-      const p = new KMLLayer({
-      url:"https://yamauchi-inochu.github.io/arcgis_api/t_point.kml",
-      id:"p",
+      const did = new KMLLayer({
+      url:"https://yamauchi-inochu.github.io/arcgis_api/kml/did.kml",
+      id:"did",
+      copyright:"国土数値情報を加工し作成",
       visible: false
-    });      
-      
+    });
+
       const map = new Map({
         basemap: "topo",
-        layers: [gsipaleLyr2,gsipaleLyr3,gsipaleLyr4,gsipaleLyr,area,p]
+        layers: [gsipaleLyr2,gsipaleLyr3,gsipaleLyr4,gsipaleLyr,area,flood,did,shelter]
       });
 
       const view = new MapView({
@@ -122,9 +137,15 @@
           if (event.layer.id === "area"){
             console.log("Areaの LayerView が作成されました!", event.layerView);
           }
-           if (event.layer.id === "p"){
-            console.log("pの LayerView が作成されました!", event.layerView);
+           if (event.layer.id === "shelter"){
+            console.log("shelterの LayerView が作成されました!", event.layerView);
           }
+          if (event.layer.id === "flood"){
+           console.log("floodの LayerView が作成されました!", event.layerView);
+         }
+         if (event.layer.id === "did"){
+          console.log("didの LayerView が作成されました!", event.layerView);
+        }
         });
 
       const scalebar = new ScaleBar({
@@ -139,7 +160,9 @@
     const gsipaleToggle3 = document.getElementById("gsipaleLyr3");
     const gsipaleToggle4 = document.getElementById("gsipaleLyr4");
     const areaToggle = document.getElementById("area");
-    const pToggle = document.getElementById("p");
+    const shelterToggle = document.getElementById("shelter");
+    const floodToggle = document.getElementById("flood");
+    const didToggle = document.getElementById("did");
 
       on(gsipaleToggle, "change", function() {
             gsipaleLyr.visible = gsipaleToggle.checked;
@@ -156,8 +179,14 @@
       on(areaToggle, "change", function() {
         area.visible = areaToggle.checked;
       });
-      on(pToggle, "change", function() {
-        p.visible = pToggle.checked;
+      on(shelterToggle, "change", function() {
+        shelter.visible = shelterToggle.checked;
+      });
+      on(floodToggle, "change", function() {
+        flood.visible = floodToggle.checked;
+      });
+      on(didToggle, "change", function() {
+        did.visible = didToggle.checked;
       });
     });
 
@@ -175,9 +204,10 @@
   <input type="checkbox" id="gsipaleLyr3" /> 写真<br>
   <input type="checkbox" id="gsipaleLyr4" /> 国土画像情報（1974～1978年）<br>
   <h2>レイヤ</h2>
-  <input type="checkbox" id="p" /> 一次避難所<br>
-  <input type="checkbox" id="area" /> 想定浸水区域<br>
-  <input type="checkbox" id="area2" /> 人口集中地区<br>
+  <input type="checkbox" id="shelter" /> 一次避難所<br>
+  <input type="checkbox" id="flood" /> 想定浸水区域<br>
+  <input type="checkbox" id="did" /> 人口集中地区<br><br>
+  <a href="https://github.com/yamauchi-inochu/arcgis_api">この地図について</a>
 </span>
 
 </body>
