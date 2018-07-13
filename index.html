@@ -40,8 +40,9 @@
       "dojo/on",
       "esri/layers/KMLLayer",
       "esri/widgets/ScaleBar",
-      "dojo/domReady!",
-      "esri/widgets/Compass"
+      "esri/widgets/Compass",
+      "dojo/domReady!"
+      
     ], function(
       Map,
       MapView,
@@ -123,7 +124,19 @@
         center: [136.570, 36.479],
         zoom: 11
       });
+      
+      const scalebar = new ScaleBar({
+        view: view,
+        unit: "dual"
+      });
 
+      view.ui.add(scalebar, "bottom-left");
+      
+      var compass = new Compass({
+      view: view
+      });
+      view.ui.add(compass, "top-left");
+      
       view.on("layerview-create", function(event) {
           if (event.layer.id === "gsipale") {
              console.log("地理院タイル（淡色地図）の LayerView が作成されました!", event.layerView);
@@ -150,17 +163,6 @@
           console.log("didの LayerView が作成されました!", event.layerView);
         }
         });
-
-      const scalebar = new ScaleBar({
-        view: view,
-        unit: "dual"
-      });
-
-      view.ui.add(scalebar, "bottom-left");
-      
-      var compass = new Compass({
-      view: view
-      });
 
     const gsipaleToggle = document.getElementById("gsipaleLyr");
     const gsipaleToggle2 = document.getElementById("gsipaleLyr2");
