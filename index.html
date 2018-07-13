@@ -40,7 +40,8 @@
       "dojo/on",
       "esri/layers/KMLLayer",
       "esri/widgets/ScaleBar",
-      "dojo/domReady!"
+      "dojo/domReady!",
+      "esri/widgets/Compass"
     ], function(
       Map,
       MapView,
@@ -49,7 +50,8 @@
       webMercatorUtils,
       on,
       KMLLayer,
-      ScaleBar
+      ScaleBar,
+      Compass
     ) {
       const gsipaleLyr = new WebTileLayer({
           urlTemplate:"https://cyberjapandata.gsi.go.jp/xyz/pale/{level}/{col}/{row}.png",
@@ -155,6 +157,10 @@
       });
 
       view.ui.add(scalebar, "bottom-left");
+      
+      var compass = new Compass({
+      view: view
+      });
 
     const gsipaleToggle = document.getElementById("gsipaleLyr");
     const gsipaleToggle2 = document.getElementById("gsipaleLyr2");
