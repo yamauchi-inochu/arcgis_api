@@ -95,14 +95,14 @@
         url:"https://yamauchi-inochu.github.io/arcgis_api/kml/shelter.kml",
         id:"shelter",
         copyright:"国土数値情報（避難施設）を加工し作成",
-        visible: false
+        visible: True
       });
 
       const flood = new KMLLayer({
       url:"https://yamauchi-inochu.github.io/arcgis_api/kml/flood.kml",
       id:"flood",
       copyright:"国土数値情報（浸水想定区域）を加工し作成",
-      visible: false,
+      visible: True,
       opacity:0.8
     });
 
@@ -209,8 +209,8 @@
   <input type="checkbox" id="gsipaleLyr3" /> 写真<br>
   <input type="checkbox" id="gsipaleLyr4" /> 国土画像情報（1974～1978年）<br>
   <h2>レイヤ</h2>
-  <input type="checkbox" id="shelter" /> 一次避難所<br>
-  <input type="checkbox" id="flood" /> 想定浸水区域<br>
+  <input type="checkbox" id="shelter" checked /> 一次避難所<br>
+  <input type="checkbox" id="flood" checked /> 想定浸水区域<br>
   <input type="checkbox" id="did" /> 人口集中地区<br><br>
   <a href="https://github.com/yamauchi-inochu/arcgis_api">この地図について</a>
 </span>
