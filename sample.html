@@ -31,46 +31,90 @@
   <script src="https://js.arcgis.com/4.7/"></script>
 
   <script>
-  　//requireに"esri/widgets/ScaleBar"を追加し、fuctionにScaleBarを追加する
-    require([
-      "esri/Map",
-      "esri/views/MapView",
-      "dojo/domReady!",
-      "esri/widgets/ScaleBar"
+  //requireに"esri/layers/KMLLayer"を追加し、fuctionにKMLLayer"を追加する
 
+  require([
+    "esri/Map",
+    "esri/views/MapView",
+    "esri/widgets/ScaleBar",
+    "esri/widgets/Compass",
+    "esri/layers/KMLLayer",
+    "dojo/on",
+    "dojo/domReady!"
 
-    ], function(
-      Map,
-      MapView,
-      ScaleBar
-    ) {
-      const map = new Map({
-        basemap: "streets"
-      });
+  ], function(
+    Map,
+    MapView,
+    ScaleBar,
+    Compass,
+    KMLLayer,
+    on
+  ) {
 
-      const view = new MapView({
-        container: "viewDiv",
-        map: map,
-        center: [136.570, 36.479],
-        zoom: 11
-      });
+    //KMLを追加する
+    const area = new KMLLayer({
+          url:"https://raw.githubusercontent.com/gis-oer/datasets/master/vector/kml/cesium/flood_assumed_area.kml",
+          id:"area"
+        });
 
-    //スケールの追加
-    const scalebar = new ScaleBar({
-      view: view,
-      unit: "dual"
+    //KMLを追加する
+    const refuge = new KMLLayer({
+          url:"https://raw.githubusercontent.com/gis-oer/datasets/master/vector/kml/cesium/refuge.kml",
+          id:"refuge"
+        });
+
+    const map = new Map({
+      basemap: "streets",
+      layers: [area,refuge]
+
     });
 
-    //スケールバーの設定
-    view.ui.add(scalebar, "bottom-left");
+    const view = new MapView({
+      container: "viewDiv",
+      map: map,
+      center: [136.1688, 35.9032],
+      zoom: 11
+    });
+
+  const scalebar = new ScaleBar({
+    view: view,
+    unit: "dual"
+  });
+
+  view.ui.add(scalebar, "bottom-left");
+
+  const compass = new Compass({
+    view: view,
+  });
+
+  view.ui.add(compass, "up-left");
+
+const areaToggle = document.getElementById("area");
+const refugeToggle = document.getElementById("refuge");
+
+  on(areaToggle, "change", function() {
+        area.visible = areaToggle.checked;
+    });
+  on(refugeToggle, "change", function() {
+        refuge.visible = refugeToggle.checked;
+    });
 
   });
+
   </script>
 
 </head>
 
 <body>
   <div id="viewDiv"></div>
+  <span id="layerToggle">
+    <h2>レイヤ</h2>
+    <input type="checkbox" id="refuge" checked /> 一次避難所<br>
+    <input type="checkbox" id="area" checked /> 想定浸水区域<br>
+    <p>凡例</p>
+    <img src="">
+    <p>このデータは越前市オープンデータを加工したものです</p>
+  </span>
 </body>
 
 </html>
