@@ -42,7 +42,7 @@
       "esri/widgets/ScaleBar",
       "esri/widgets/Compass",
       "dojo/domReady!"
-      
+
     ], function(
       Map,
       MapView,
@@ -122,19 +122,19 @@
         center: [136.570, 36.479],
         zoom: 11
       });
-      
+
       const scalebar = new ScaleBar({
         view: view,
         unit: "dual"
       });
 
       view.ui.add(scalebar, "bottom-left");
-      
+
       var compass = new Compass({
       view: view
       });
       view.ui.add(compass, "top-left");
-      
+
       view.on("layerview-create", function(event) {
           if (event.layer.id === "gsipale") {
              console.log("地理院タイル（淡色地図）の LayerView が作成されました!", event.layerView);
@@ -209,6 +209,7 @@
   <h2>レイヤ</h2>
   <input type="checkbox" id="shelter" checked /> 一次避難所<br>
   <input type="checkbox" id="flood" checked /> 想定浸水区域<br>
+  <img src="./img/legend_te.png" id="img01"><br>
   <input type="checkbox" id="did" /> 人口集中地区<br><br>
   <a href="https://github.com/yamauchi-inochu/arcgis_api">この地図について</a>
 </span>
